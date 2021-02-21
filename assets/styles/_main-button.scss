@@ -1,4 +1,5 @@
-$transition-time: .5s;
+$main-transition-time: .3s;
+$border-transition-time: .1s;
 $offset: -4px;
 $border-size: 2px;
 $offset-plus-border-size: $offset - $border-size;
@@ -22,9 +23,11 @@ $offset-plus-border-size: $offset - $border-size;
   font-weight: bold;
   border: #{$border-size} solid #{$chrome-yellow};
   border-radius: 0;
-  transition: #{$transition-time} ease;
+  transition: #{$main-transition-time} ease;
+  //transition-delay: #{$border-transition-time};
+  text-decoration: none;
 
-  &::before {
+  &:before {
     content: '';
     position: absolute;
     background: transparent;
@@ -33,18 +36,18 @@ $offset-plus-border-size: $offset - $border-size;
     left: #{$offset-plus-border-size};
     right: #{$offset-plus-border-size};
     border: #{$border-size} solid #{$chrome-yellow};
-    transition: 0.2s ease;
+    transition: #{$border-transition-time} ease;
   }
 
   &:hover {
     box-shadow: inset 0 0 0 2.5em #{$chrome-yellow};
     color: #{$white};
-    &::before {
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
+    //&:before {
+    //  top: 0;
+    //  right: 0;
+    //  bottom: 0;
+    //  left: 0;
+    //}
   }
 
 }
