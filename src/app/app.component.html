@@ -1,14 +1,22 @@
 <div class="main-container">
   <div class="central-container">
     <div class="my-image">
-      <div class="image-wrapper">
+      <div #imageWrapper class="image-wrapper">
         <img class="photo" src="assets/images/me.jpg" alt="me"/>
-        <img class="aws-cloud-practitioner" src="assets/images/aws-cloud-practitioner.png" alt="aws-cloud-practitioner"
-             (mousemove)="animate($event.target)">
+        <img #awsBadge class="aws-cloud-practitioner"
+             src="assets/images/aws-cloud-practitioner.png" alt="aws-cloud-practitioner"
+             (mousemove)="animate()">
       </div>
-      <div class="bubble">
-        <div class="bubble-bullets">
+      <div #bubble class="bubble" (click)="showFullBubbleSpeech()">
+        <div #bubbleBullets *ngIf="!fullBubbleSpeech" class="bubble-bullets">
           <span *ngFor="let bullet of [1,2,3]">&#8226;</span>
+        </div>
+        <div class="full-info" *ngIf="fullBubbleSpeech" [@inOutAnimation]>
+          <p>Hi! My namy is Arek!</p>
+          <p>In June 2019, I decided to start my career as a Java Developer. I left my old job as an editor-in-chief and marketing specialist in a successful e-gaming company.</p>
+          <p>Since then, I've been continuously working on my IT skills.</p>
+          <p>In February 2021, I became a certified AWS Cloud Practitioner.</p>
+          <p>Read more about my life <a href="https://altkomsoftware.pl/blog/becoming-a-full-stack-developer-in-one-year-at-your-thirties/">here</a>.</p>
         </div>
       </div>
     </div>

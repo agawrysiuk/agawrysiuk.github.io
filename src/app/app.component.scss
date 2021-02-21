@@ -1,5 +1,11 @@
 @import "src/assets/styles/colors";
 
+@mixin small {
+  @media (max-width: 666px) {
+    @content
+  }
+}
+
 .main-container {
   display: flex;
   justify-content: center;
@@ -18,6 +24,7 @@
     position: relative;
     --image-size: 320px;
     margin-left: calc(50% - (var(--image-size) / 2));
+    transition: all .4s linear;
 
     .photo {
       border: 2px solid #{$chrome-yellow};
@@ -32,25 +39,35 @@
       top: 60%;
       width: 100px;
       z-index: 1;
+      transition: all .4s linear;
+
+      @include small {
+        left: 75%;
+      }
     }
   }
 
   .bubble {
     position: absolute;
-    top: 30px;
+    top: 0;
     left: 65%;
     width: 100px;
     height: 50px;
     background-color: #fff;
     color: #000;
-    font-size: 80px;
     padding: 15px 25px;
     cursor: pointer;
     border: 2px #{$chrome-yellow} solid;
     border-radius: 15px;
+    transition: all .4s linear;
+
+    @include small {
+      display: none;
+    }
 
     .bubble-bullets {
       position: relative;
+      font-size: 80px;
 
       $n: 3;
       @for $i from 1 through $n {
@@ -88,7 +105,7 @@
   text-align: center;
   padding: 2em;
 
-  @media(max-width: 666px) {
+  @include small {
     margin-bottom: 3em;
     padding: 1em;
     font-size: 1em;
