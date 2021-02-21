@@ -25,6 +25,7 @@ $offset-plus-border-size: $offset - $border-size;
   border-radius: 0;
   transition: #{$main-transition-time} ease;
   transition-delay: #{$border-transition-time};
+  text-decoration: none;
 
   &::before {
     content: '';
