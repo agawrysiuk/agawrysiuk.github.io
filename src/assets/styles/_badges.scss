@@ -1,0 +1,15 @@
+.badge-animation {
+  animation: rotateBadge 0.5s ease-in-out 1;
+}
+
+@keyframes rotateBadge {
+  50% {
+    top: 55%;
+    transform: rotateY(180deg);
+  }
+  100% {
+    top: 60%;
+    transform: rotateY(360deg);
+  }
+
+}

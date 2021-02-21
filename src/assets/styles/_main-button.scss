@@ -24,10 +24,10 @@ $offset-plus-border-size: $offset - $border-size;
   border: #{$border-size} solid #{$chrome-yellow};
   border-radius: 0;
   transition: #{$main-transition-time} ease;
-  transition-delay: #{$border-transition-time};
+  //transition-delay: #{$border-transition-time};
   text-decoration: none;
 
-  &::before {
+  &:before {
     content: '';
     position: absolute;
     background: transparent;
@@ -42,12 +42,12 @@ $offset-plus-border-size: $offset - $border-size;
   &:hover {
     box-shadow: inset 0 0 0 2.5em #{$chrome-yellow};
     color: #{$white};
-    &::before {
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
+    //&:before {
+    //  top: 0;
+    //  right: 0;
+    //  bottom: 0;
+    //  left: 0;
+    //}
   }
 
 }
