@@ -90,6 +90,21 @@
         }
       }
     }
+
+    .full-info {
+      position: relative;
+
+      .full-info-close {
+        position: absolute;
+        color: #{$chrome-yellow};
+        font-weight: 300;
+        top: -13px;
+        right: 0;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+      }
+    }
   }
 }
 
@@ -104,6 +119,7 @@
   text-transform: uppercase;
   text-align: center;
   padding: 2em;
+  cursor: default;
 
   @include small {
     margin-bottom: 3em;
@@ -135,7 +151,7 @@
 }
 
 .my-description {
-  letter-spacing: .25em;
+  letter-spacing: .15em;
   text-transform: uppercase;
   text-align: center;
 }

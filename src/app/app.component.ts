@@ -21,7 +21,7 @@ import {animate, style, transition, trigger} from '@angular/animations';
           ':leave',
           [
             style({opacity: 1}),
-            animate('1s ease-in',
+            animate('.2s ease-in',
               style({opacity: 0}))
           ]
         )
@@ -38,6 +38,7 @@ export class AppComponent {
   @ViewChild('imageWrapper') imageWrapper: ElementRef;
   @ViewChild('bubble') bubble: ElementRef;
   @ViewChild('bubbleBullets') bubbleBullets: ElementRef;
+  showInfo: boolean = false;
   fullBubbleSpeech: boolean = false;
 
   animate(): void {
@@ -52,7 +53,7 @@ export class AppComponent {
     }
   }
 
-  showFullBubbleSpeech(): void {
+  showFullInfo(): void {
     if (!this.fullBubbleSpeech) {
       this.imageWrapper.nativeElement.style.marginLeft = '0';
       this.awsBadge.nativeElement.style.left = '38%';
@@ -63,9 +64,27 @@ export class AppComponent {
         this.bubble.nativeElement.style.pointer = 'default';
         this.bubbleBullets.nativeElement.style.opacity = '0';
         setTimeout(() => {
+          this.showInfo = true;
           this.fullBubbleSpeech = true;
         }, 400);
       }, 400);
     }
   }
+
+  hideFullInfo(): void {
+    this.showInfo = false;
+    setTimeout(() => {
+      this.bubble.nativeElement.style.width = '100px';
+      this.bubble.nativeElement.style.height = '50px';
+      this.bubble.nativeElement.style.pointer = 'default';
+      setTimeout(() => {
+        this.fullBubbleSpeech = false;
+        this.imageWrapper.nativeElement.style.marginLeft = 'calc(50% - (var(--image-size) / 2))';
+        this.awsBadge.nativeElement.style.left = '50%';
+        this.bubble.nativeElement.style.left = '65%';
+      }, 400);
+    }, 200);
+  }
+
+
 }

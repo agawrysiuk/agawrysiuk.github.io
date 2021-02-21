@@ -7,21 +7,22 @@
              src="assets/images/aws-cloud-practitioner.png" alt="aws-cloud-practitioner"
              (mousemove)="animate()">
       </div>
-      <div #bubble class="bubble" (click)="showFullBubbleSpeech()">
+      <div #bubble class="bubble" (click)="showFullInfo()">
         <div #bubbleBullets *ngIf="!fullBubbleSpeech" class="bubble-bullets">
           <span *ngFor="let bullet of [1,2,3]">&#8226;</span>
         </div>
-        <div class="full-info" *ngIf="fullBubbleSpeech" [@inOutAnimation]>
+        <div class="full-info" *ngIf="showInfo" [@inOutAnimation]>
           <p>Hi! My namy is Arek!</p>
           <p>In June 2019, I decided to start my career as a Java Developer. I left my old job as an editor-in-chief and marketing specialist in a successful e-gaming company.</p>
           <p>Since then, I've been continuously working on my IT skills.</p>
           <p>In February 2021, I became a certified AWS Cloud Practitioner.</p>
           <p>Read more about my life <a href="https://altkomsoftware.pl/blog/becoming-a-full-stack-developer-in-one-year-at-your-thirties/">here</a>.</p>
+          <div class="full-info-close" (click)="hideFullInfo()">x</div>
         </div>
       </div>
     </div>
     <div class="my-name">Arkadiusz Gawrysiuk</div>
-    <div class="my-description">A Full-Stack Java Developer</div>
+    <div class="my-description"><b>A Full-Stack Java Developer</b><br />@ Altkom Software & Consulting</div>
     <div class="button-row">
       <a class="main-button" href="https://www.linkedin.com/in/arkadiusz-gawrysiuk-56a556178/">
         contact me
