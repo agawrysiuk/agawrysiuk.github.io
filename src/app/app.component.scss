@@ -13,21 +13,66 @@
 .my-image {
   position: relative;
   margin-top: 60px;
-  text-align: center;
 
-  .photo {
-    border: 2px solid #{$chrome-yellow};
-    width: 40%;
-    border-radius: 50%;
+  .image-wrapper {
+    position: relative;
+    --image-size: 320px;
+    margin-left: calc(50% - (var(--image-size) / 2));
+
+    .photo {
+      border: 2px solid #{$chrome-yellow};
+      width: var(--image-size);
+      border-radius: 50%;
+    }
+
+    .aws-cloud-practitioner {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 60%;
+      width: 100px;
+      z-index: 1;
+    }
   }
 
-  .aws-cloud-practitioner {
-    display: block;
+  .bubble {
     position: absolute;
-    left: 60%;
-    top: 60%;
-    width: 13%;
-    z-index: 1;
+    top: 30px;
+    left: 65%;
+    width: 100px;
+    height: 50px;
+    background-color: #fff;
+    color: #000;
+    font-size: 80px;
+    padding: 15px 25px;
+    cursor: pointer;
+    border: 2px #{$chrome-yellow} solid;
+    border-radius: 15px;
+
+    .bubble-bullets {
+      position: relative;
+
+      $n: 3;
+      @for $i from 1 through $n {
+        span:nth-child(#{$i}) {
+          position: absolute;
+          color: #{$chrome-yellow};
+          left: 30px * (-0.8 + $i);
+          top: -15px;
+          animation: moveBullet 1s infinite;
+          animation-delay: (1s / 5) * $i;
+        }
+      }
+
+      @keyframes moveBullet {
+        25% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    }
   }
 }
 
@@ -64,6 +109,7 @@
     animation: changeBackground 4s alternate infinite;
   }
 }
+
 // because you can't animate linear-gradient
 @keyframes changeBackground {
   50% {

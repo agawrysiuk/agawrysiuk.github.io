@@ -1,9 +1,16 @@
 <div class="main-container">
   <div class="central-container">
     <div class="my-image">
-      <img class="photo" src="assets/images/me.jpg" alt="me"/>
-      <img class="aws-cloud-practitioner" src="assets/images/aws-cloud-practitioner.png" alt="aws-cloud-practitioner"
-           (mousemove)="animate($event.target)">
+      <div class="image-wrapper">
+        <img class="photo" src="assets/images/me.jpg" alt="me"/>
+        <img class="aws-cloud-practitioner" src="assets/images/aws-cloud-practitioner.png" alt="aws-cloud-practitioner"
+             (mousemove)="animate($event.target)">
+      </div>
+      <div class="bubble">
+        <div class="bubble-bullets">
+          <span *ngFor="let bullet of [1,2,3]">&#8226;</span>
+        </div>
+      </div>
     </div>
     <div class="my-name">Arkadiusz Gawrysiuk</div>
     <div class="my-description">A Full-Stack Java Developer</div>
