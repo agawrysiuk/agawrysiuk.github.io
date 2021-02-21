@@ -14,12 +14,46 @@
   position: relative;
   margin-top: 60px;
   text-align: center;
-  border-radius: 50%;
 
-  img {
+  .photo {
     border: 2px solid #{$chrome-yellow};
     width: 40%;
     border-radius: 50%;
+  }
+
+  .aws-cloud-practitioner {
+    position: absolute;
+    left: 60%;
+    top: 60%;
+    width: 13%;
+    z-index: 1;
+
+    &::before {
+      position: absolute;
+      background: #FFF;
+      border: 0px solid #000;
+      content: "";
+      height: 155px;
+      left: -75px;
+      opacity: .8;
+      top: -50px;
+      -webkit-transform: rotate(35deg);
+      transform: rotate(35deg);
+      width: 50px;
+      transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);/*easeOutCirc*/
+      z-index: 3;
+    }
+
+
+    &:hover {
+      &::before {
+        background: #FFF;
+        border: 20px solid #000;
+        left: 120%;
+        -webkit-transform: rotate(40deg);
+        transform: rotate(40deg);
+      }
+    }
   }
 }
 
